@@ -4,6 +4,7 @@ import com.lechos22j.wisniamobile.extraservices.Service;
 
 import java.util.Date;
 import java.util.Set;
+import java.util.UUID;
 
 public class PostPaidTariffVersion extends TariffVersion {
     public static class Builder {
@@ -13,6 +14,10 @@ public class PostPaidTariffVersion extends TariffVersion {
             tariffVersion = new PostPaidTariffVersion();
         }
 
+        public Builder setId(UUID id) {
+            tariffVersion.id = id;
+            return this;
+        }
         public Builder setEndDate(Date endDate) {
             tariffVersion.endDate = endDate;
             return this;

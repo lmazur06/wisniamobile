@@ -40,6 +40,9 @@ public class FactureBuilder {
     public Account getAccount() {
         return account;
     }
+    public UUID getId() {
+        return id;
+    }
     public String getXml() {
         return
             "<facture>" +

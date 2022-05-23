@@ -2,19 +2,20 @@ package com.lechos22j.wisniamobile;
 
 import com.lechos22j.wisniamobile.contract.PostPaidContract;
 import com.lechos22j.wisniamobile.customer.PersonalCustomer;
+import com.lechos22j.wisniamobile.database.DbInterface;
 import com.lechos22j.wisniamobile.reckoning.Account;
 import com.lechos22j.wisniamobile.reckoning.FactureBuilder;
 import com.lechos22j.wisniamobile.tariff.PostPaidTariffVersion;
+import com.lechos22j.wisniamobile.utils.Constants;
 import com.lechos22j.wisniamobile.utils.Tools;
 import org.junit.jupiter.api.Test;
 
-import javax.xml.stream.XMLStreamWriter;
+import java.sql.SQLException;
 import java.util.Date;
 
 public class ModuleTest {
     @Test
-    public void test() {
-        // Main.main(new String[]{"."});
+    public void test() throws Exception {
         PostPaidTariffVersion tariff = new PostPaidTariffVersion
             .Builder()
             .setEndDate(Tools.offsetByMonths(new Date(), 12))
@@ -50,10 +51,10 @@ public class ModuleTest {
             .setEndDate(Tools.offsetByMonths(new Date(), 6))
             .get();
         account.getContracts().add(contract);
-        String facture = new FactureBuilder()
+        FactureBuilder factureBuilder = new FactureBuilder()
             .setAccount(account)
-            .setCity("Warszawa")
-            .getXml();
+            .setCity(Constants.CITY);
+        String facture = factureBuilder.getXml();
         System.out.println(facture);
     }
 }
