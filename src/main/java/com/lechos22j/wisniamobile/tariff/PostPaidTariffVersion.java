@@ -30,8 +30,8 @@ public class PostPaidTariffVersion extends TariffVersion {
             tariffVersion.monthlyFee = monthlyFee;
             return this;
         }
-        public Builder setNumberOfCalls(double numberOfCalls) {
-            tariffVersion.minutes = numberOfCalls;
+        public Builder setCallMinutes(double callMinutes) {
+            tariffVersion.callMinutes = callMinutes;
             return this;
         }
         public Builder setNumberOfSms(int numberOfSms) {
@@ -68,7 +68,7 @@ public class PostPaidTariffVersion extends TariffVersion {
         }
     }
     private double monthlyFee;
-    private double minutes;
+    private double callMinutes;
     private int numberOfSms;
     private int numberOfMms;
     private double dataVolume;
@@ -84,8 +84,8 @@ public class PostPaidTariffVersion extends TariffVersion {
     public double getMonthlyFee() {
         return monthlyFee;
     }
-    public double getMinutes() {
-        return minutes;
+    public double getCallMinutes() {
+        return callMinutes;
     }
     public int getNumberOfSms() {
         return numberOfSms;

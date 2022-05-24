@@ -2,7 +2,6 @@ package com.lechos22j.wisniamobile;
 
 import com.lechos22j.wisniamobile.contract.PostPaidContract;
 import com.lechos22j.wisniamobile.customer.PersonalCustomer;
-import com.lechos22j.wisniamobile.database.DbInterface;
 import com.lechos22j.wisniamobile.reckoning.Account;
 import com.lechos22j.wisniamobile.reckoning.FactureBuilder;
 import com.lechos22j.wisniamobile.tariff.PostPaidTariffVersion;
@@ -10,7 +9,6 @@ import com.lechos22j.wisniamobile.utils.Constants;
 import com.lechos22j.wisniamobile.utils.Tools;
 import org.junit.jupiter.api.Test;
 
-import java.sql.SQLException;
 import java.util.Date;
 
 public class ModuleTest {
@@ -20,7 +18,7 @@ public class ModuleTest {
             .Builder()
             .setEndDate(Tools.offsetByMonths(new Date(), 12))
             .setMonthlyFee(100)
-            .setNumberOfCalls(100)
+            .setCallMinutes(100)
             .setNumberOfSms(100)
             .setNumberOfMms(100)
             .setDataVolume(100)

@@ -37,7 +37,7 @@ public class PostPaidContract extends Contract{
         public Builder applyTariffVersion() {
             this.contract.smsLeft = contract.tariff.getNumberOfSms();
             this.contract.mmsLeft = contract.tariff.getNumberOfMms();
-            this.contract.minutesLeft = contract.tariff.getMinutes();
+            this.contract.minutesLeft = contract.tariff.getCallMinutes();
             this.contract.dataLeft = contract.tariff.getDataVolume();
             return this;
         }
