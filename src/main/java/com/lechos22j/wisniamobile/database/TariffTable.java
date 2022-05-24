@@ -15,6 +15,7 @@ public class TariffTable {
             "last_version TEXT" +
             ");"
         );
+        TariffVersionTable.create();
     }
     public static void add(Tariff<?> tariff) throws SQLException {
         DbInterface.getInstance().query("INSERT OR REPLACE INTO tariffs (id, name, last_version) VALUES ('"

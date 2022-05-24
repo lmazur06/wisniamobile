@@ -19,8 +19,6 @@ public class DbTest {
     @Test
     public void test() throws Exception {
         TariffTable.create();
-        TariffVersionTable.create();
-        ServiceTable.create();
         PostPaidTariffVersion tariffVersion = new PostPaidTariffVersion
             .Builder()
             .setEndDate(Tools.offsetByMonths(new Date(), 12))

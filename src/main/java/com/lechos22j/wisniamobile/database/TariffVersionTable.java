@@ -16,6 +16,7 @@ public class TariffVersionTable {
         );
         PrePaidTariffVersionTable.create();
         PostPaidTariffVersionTable.create();
+        ServiceTable.create();
     }
 
     public static void add(TariffVersion version) throws SQLException {
