@@ -1,5 +1,7 @@
 package com.lechos22j.wisniamobile.extraservices;
 
+import com.lechos22j.wisniamobile.tariff.TariffVersion;
+
 import java.util.UUID;
 
 public class Service {
@@ -26,6 +28,10 @@ public class Service {
             service.price = price;
             return this;
         }
+        public Builder setTariffVersion(TariffVersion tariffVersion){
+            service.tariffVersion = tariffVersion;
+            return this;
+        }
 
         public Service get(){
             return service;
@@ -35,6 +41,11 @@ public class Service {
     private String name;
     private String description;
     private double price;
+    private TariffVersion tariffVersion;
+
+    private Service(){
+        this.id = UUID.randomUUID();
+    }
 
     public UUID getId() {
         return id;
@@ -47,5 +58,8 @@ public class Service {
     }
     public double getPrice() {
         return price;
+    }
+    public TariffVersion getTariffVersion() {
+        return tariffVersion;
     }
 }

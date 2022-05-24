@@ -1,5 +1,6 @@
 package com.lechos22j.wisniamobile.database;
 
+import com.lechos22j.wisniamobile.extraservices.Service;
 import com.lechos22j.wisniamobile.tariff.PostPaidTariffVersion;
 
 import java.sql.SQLException;
@@ -21,19 +22,19 @@ public class PostPaidTariffVersionTable {
             ");"
         );
     }
-    public static void add(PostPaidTariffVersion v) throws SQLException {
+    public static void add(PostPaidTariffVersion version) throws SQLException {
         DbInterface.getInstance().query("INSERT OR REPLACE INTO postpaid_tariff_versions VALUES (" +
-            "'" + v.getId() + "'," +
-            "'" + v.getEndDate() + "'," +
-            v.getMonthlyFee() + "," +
-            v.getCallMinutes() + "," +
-            v.getNumberOfSms() + "," +
-            v.getNumberOfMms() + "," +
-            v.getDataVolume() + "," +
-            v.getCallFee() + "," +
-            v.getSmsFee() + "," +
-            v.getMmsFee() + "," +
-            v.getDataTransferFee() +
+            "'" + version.getId() + "'," +
+            "'" + version.getEndDate() + "'," +
+            version.getMonthlyFee() + "," +
+            version.getCallMinutes() + "," +
+            version.getNumberOfSms() + "," +
+            version.getNumberOfMms() + "," +
+            version.getDataVolume() + "," +
+            version.getCallFee() + "," +
+            version.getSmsFee() + "," +
+            version.getMmsFee() + "," +
+            version.getDataTransferFee() +
             ");"
         );
     }

@@ -1,5 +1,6 @@
 package com.lechos22j.wisniamobile.database;
 
+import com.lechos22j.wisniamobile.extraservices.Service;
 import com.lechos22j.wisniamobile.tariff.PostPaidTariffVersion;
 import com.lechos22j.wisniamobile.tariff.PrePaidTariffVersion;
 import com.lechos22j.wisniamobile.tariff.TariffVersion;
@@ -25,5 +26,7 @@ public class TariffVersionTable {
             PrePaidTariffVersionTable.add(v);
         else if(version instanceof PostPaidTariffVersion v)
             PostPaidTariffVersionTable.add(v);
+        for(Service s : version.getServices())
+            ServiceTable.add(s);
     }
 }

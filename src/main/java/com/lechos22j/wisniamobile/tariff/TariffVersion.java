@@ -19,6 +19,10 @@ public abstract class TariffVersion {
         this.services = new HashSet<>();
     }
 
+    public void addService(Service service) {
+        this.services.add(service);
+    }
+
     public UUID getId() {
         return id;
     }

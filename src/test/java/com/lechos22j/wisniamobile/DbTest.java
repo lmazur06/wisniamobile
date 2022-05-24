@@ -4,6 +4,7 @@ import com.lechos22j.wisniamobile.database.DbInterface;
 import com.lechos22j.wisniamobile.database.ServiceTable;
 import com.lechos22j.wisniamobile.database.TariffTable;
 import com.lechos22j.wisniamobile.database.TariffVersionTable;
+import com.lechos22j.wisniamobile.extraservices.Service;
 import com.lechos22j.wisniamobile.tariff.PostPaidTariffVersion;
 import com.lechos22j.wisniamobile.tariff.Tariff;
 import com.lechos22j.wisniamobile.tariff.TariffVersion;
@@ -24,19 +25,26 @@ public class DbTest {
             .Builder()
             .setEndDate(Tools.offsetByMonths(new Date(), 12))
             .setMonthlyFee(100)
-            .setCallMinutes(100)
-            .setNumberOfSms(100)
-            .setNumberOfMms(100)
-            .setDataVolume(100)
-            .setCallFee(100)
-            .setSmsFee(100)
-            .setMmsFee(100)
+            .setCallMinutes(120)
+            .setNumberOfSms(50)
+            .setNumberOfMms(50)
+            .setDataVolume(10)
+            .setCallFee(0.5)
+            .setSmsFee(0.5)
+            .setMmsFee(1)
             .setDataTransferFee(100)
             .get();
-        TariffVersionTable.add(tariffVersion);
+        Service service = new Service
+            .Builder()
+            .setName("testowa usluga")
+            .setDescription("opis")
+            .setPrice(10)
+            .setTariffVersion(tariffVersion)
+            .get();
+        tariffVersion.addService(service);
         Tariff<PostPaidTariffVersion> tariff = new Tariff
             .Builder<PostPaidTariffVersion>()
-            .setName("testowa_taryfa")
+            .setName("testowa taryfa")
             .get();
         tariff.addVersion(tariffVersion);
         TariffTable.add(tariff);
