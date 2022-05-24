@@ -13,12 +13,19 @@ public abstract class TariffVersion {
     protected UUID id;
     protected Date endDate;
     protected Set<Service> services;
+    protected Tariff tariff;
 
     protected TariffVersion() {
         this.id = UUID.randomUUID();
         this.services = new HashSet<>();
     }
 
+    public void setServices(Set<Service> services) {
+        this.services = services;
+    }
+    public void setTariff(Tariff tariff) {
+        this.tariff = tariff;
+    }
     public void addService(Service service) {
         this.services.add(service);
     }
@@ -31,5 +38,9 @@ public abstract class TariffVersion {
     }
     public Set<Service> getServices() {
         return services;
+    }
+
+    public Tariff getTariff() {
+        return tariff;
     }
 }

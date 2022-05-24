@@ -27,6 +27,10 @@ public class PrePaidTariffVersion extends TariffVersion {
             tariffVersion.services = services;
             return this;
         }
+        public Builder setTariff(Tariff tariff) {
+            tariffVersion.tariff = tariff;
+            return this;
+        }
         public Builder setCallPrice(double callPrice) {
             tariffVersion.callPrice = callPrice;
             return this;

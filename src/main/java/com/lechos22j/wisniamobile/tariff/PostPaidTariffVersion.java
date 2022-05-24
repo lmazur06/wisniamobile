@@ -26,6 +26,10 @@ public class PostPaidTariffVersion extends TariffVersion {
             tariffVersion.services = services;
             return this;
         }
+        public Builder setTariff(Tariff tariff) {
+            tariffVersion.tariff = tariff;
+            return this;
+        }
         public Builder setMonthlyFee(double monthlyFee) {
             tariffVersion.monthlyFee = monthlyFee;
             return this;

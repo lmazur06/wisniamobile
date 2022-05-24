@@ -47,6 +47,10 @@ public class Service {
         this.id = UUID.randomUUID();
     }
 
+    public void setTariffVersion(TariffVersion tariffVersion) {
+        this.tariffVersion = tariffVersion;
+    }
+
     public UUID getId() {
         return id;
     }

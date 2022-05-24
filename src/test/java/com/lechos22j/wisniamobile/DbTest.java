@@ -19,6 +19,10 @@ public class DbTest {
     @Test
     public void test() throws Exception {
         TariffTable.create();
+        Tariff tariff = new Tariff
+            .Builder()
+            .setName("testowa taryfa")
+            .get();
         PostPaidTariffVersion tariffVersion = new PostPaidTariffVersion
             .Builder()
             .setEndDate(Tools.offsetByMonths(new Date(), 12))
@@ -31,6 +35,7 @@ public class DbTest {
             .setSmsFee(0.5)
             .setMmsFee(1)
             .setDataTransferFee(100)
+            .setTariff(tariff)
             .get();
         Service service = new Service
             .Builder()
@@ -40,12 +45,9 @@ public class DbTest {
             .setTariffVersion(tariffVersion)
             .get();
         tariffVersion.addService(service);
-        Tariff<PostPaidTariffVersion> tariff = new Tariff
-            .Builder<PostPaidTariffVersion>()
-            .setName("testowa taryfa")
-            .get();
         tariff.addVersion(tariffVersion);
         TariffTable.add(tariff);
+        TariffTable.getAll();
         DbInterface.close();
     }
 }

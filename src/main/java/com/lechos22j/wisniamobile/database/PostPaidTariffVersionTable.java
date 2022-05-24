@@ -1,15 +1,19 @@
 package com.lechos22j.wisniamobile.database;
 
-import com.lechos22j.wisniamobile.extraservices.Service;
 import com.lechos22j.wisniamobile.tariff.PostPaidTariffVersion;
+import com.lechos22j.wisniamobile.tariff.PrePaidTariffVersion;
+import com.lechos22j.wisniamobile.tariff.Tariff;
+import com.lechos22j.wisniamobile.tariff.TariffVersion;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.*;
 
 public class PostPaidTariffVersionTable {
+    private static final Map<String, PostPaidTariffVersion> cache = new HashMap<>();
     public static void create() throws SQLException {
         DbInterface.getInstance().query("CREATE TABLE IF NOT EXISTS postpaid_tariff_versions (" +
             "id TEXT PRIMARY KEY," +
-            "end_date DATE," +
             "monthly_fee REAL," +
             "call_minutes REAL," +
             "number_of_sms INT," +
@@ -23,9 +27,9 @@ public class PostPaidTariffVersionTable {
         );
     }
     public static void add(PostPaidTariffVersion version) throws SQLException {
+        cache.put(version.getId().toString(), version);
         DbInterface.getInstance().query("INSERT OR REPLACE INTO postpaid_tariff_versions VALUES (" +
             "'" + version.getId() + "'," +
-            "'" + version.getEndDate() + "'," +
             version.getMonthlyFee() + "," +
             version.getCallMinutes() + "," +
             version.getNumberOfSms() + "," +
@@ -37,5 +41,48 @@ public class PostPaidTariffVersionTable {
             version.getDataTransferFee() +
             ");"
         );
+    }
+    public static PostPaidTariffVersion get(String id) throws SQLException {
+        if(cache.containsKey(id))
+            return cache.get(id);
+        ResultSet resultSet = DbInterface.getInstance().query("SELECT * FROM postpaid_tariff_versions JOIN tariff_versions ON postpaid_tariff_versions.id=tariff_versions.id WHERE tariff_versions.id = '" + id + "';");
+        if(resultSet.next()) {
+            PostPaidTariffVersion version = new PostPaidTariffVersion.Builder()
+                .setId(UUID.fromString(id))
+                //.setEndDate(resultSet.getDate("end_date"))
+                .setMonthlyFee(resultSet.getDouble("monthly_fee"))
+                .setCallMinutes(resultSet.getDouble("call_minutes"))
+                .setNumberOfSms(resultSet.getInt("number_of_sms"))
+                .setNumberOfMms(resultSet.getInt("number_of_mms"))
+                .setDataVolume(resultSet.getDouble("data_volume"))
+                .setCallFee(resultSet.getDouble("call_fee"))
+                .setSmsFee(resultSet.getDouble("sms_fee"))
+                .setMmsFee(resultSet.getDouble("mms_fee"))
+                .setDataTransferFee(resultSet.getDouble("data_transfer_fee"))
+                .get();
+            version.setServices(ServiceTable.getFor(version));
+            version.getServices().forEach(service -> service.setTariffVersion(version));
+            cache.put(id, version);
+            return version;
+        }
+        return null;
+    }
+    public static Set<PostPaidTariffVersion> getFor(Tariff tariff) throws SQLException {
+        ResultSet resultSet = DbInterface.getInstance().query(
+            "SELECT * FROM tariff_versions INNER JOIN postpaid_tariff_versions ON tariff_versions.id=postpaid_tariff_versions.id WHERE tariff_id = '" + tariff.getId() + "';"
+        );
+        Set<PostPaidTariffVersion> tariffVersions = new HashSet<>();
+        while(resultSet.next()) {
+            tariffVersions.add(get(resultSet.getString("id")));
+        }
+        return tariffVersions;
+    }
+    public static Set<PostPaidTariffVersion> getAll() throws SQLException {
+        ResultSet resultSet = DbInterface.getInstance().query("SELECT * FROM postpaid_tariff_versions;");
+        Set<PostPaidTariffVersion> versions = new HashSet<>();
+        while(resultSet.next()) {
+            versions.add(get(resultSet.getString("id")));
+        }
+        return versions;
     }
 }
