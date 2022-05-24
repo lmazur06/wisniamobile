@@ -7,8 +7,6 @@ public class Service {
     private String name;
     private String description;
     private String price;
-    private String duration;
-    private String type;
 
     public UUID getId() {
         return id;
@@ -21,11 +19,5 @@ public class Service {
     }
     public String getPrice() {
         return price;
-    }
-    public String getDuration() {
-        return duration;
-    }
-    public String getType() {
-        return type;
     }
 }
