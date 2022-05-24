@@ -21,7 +21,7 @@ public class Tariff<Version extends TariffVersion> {
             return this;
         }
 
-        Tariff<Version> get() {
+        public Tariff<Version> get() {
             return this.tariff;
         }
     }
