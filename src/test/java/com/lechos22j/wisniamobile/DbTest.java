@@ -1,6 +1,7 @@
 package com.lechos22j.wisniamobile;
 
 import com.lechos22j.wisniamobile.database.DbInterface;
+import com.lechos22j.wisniamobile.database.ServiceTable;
 import com.lechos22j.wisniamobile.database.TariffTable;
 import com.lechos22j.wisniamobile.database.TariffVersionTable;
 import com.lechos22j.wisniamobile.tariff.PostPaidTariffVersion;
@@ -18,6 +19,7 @@ public class DbTest {
     public void test() throws Exception {
         TariffTable.create();
         TariffVersionTable.create();
+        ServiceTable.create();
         PostPaidTariffVersion tariffVersion = new PostPaidTariffVersion
             .Builder()
             .setEndDate(Tools.offsetByMonths(new Date(), 12))

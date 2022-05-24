@@ -5,6 +5,7 @@ import com.lechos22j.wisniamobile.tariff.PrePaidTariffVersion;
 import java.sql.SQLException;
 
 public class PrePaidTariffVersionTable {
+    // TODO: implement
     public static void create() throws SQLException {
         DbInterface.getInstance().query("CREATE TABLE IF NOT EXISTS prepaid_tariff_versions (id TEXT PRIMARY KEY);");
     }
