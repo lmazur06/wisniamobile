@@ -40,7 +40,7 @@ public class PrePaidTariffVersionTable {
         if(cache.containsKey(id))
             return cache.get(id);
         ResultSet result = DbInterface.getInstance().query(
-            "SELECT * FROM prepaid_tariff_versions WHERE id = '" + id + "' LEFT JOIN tariff_versions ON prepaid_tariff_versions.id=tariff_versions.id;"
+            "SELECT * FROM prepaid_tariff_versions JOIN tariff_versions ON prepaid_tariff_versions.id=tariff_versions.id WHERE tariff_versions.id = '" + id + "';"
         );
         if(!result.next())
             return null;
@@ -68,11 +68,17 @@ public class PrePaidTariffVersionTable {
         return tariffVersions;
     }
     public static Set<PrePaidTariffVersion> getAll() throws SQLException {
-        ResultSet resultSet = DbInterface.getInstance().query("SELECT * FROM postpaid_tariff_versions;");
+        ResultSet resultSet = DbInterface.getInstance().query("SELECT * FROM prepaid_tariff_versions INNER JOIN tariff_versions ON tariff_versions.id=prepaid_tariff_versions.id;");
         Set<PrePaidTariffVersion> versions = new HashSet<>();
         while(resultSet.next()) {
-            versions.add(get(resultSet.getString("id")));
+            PrePaidTariffVersion tariffVersion = get(resultSet.getString("id"));
+            if (tariffVersion == null) continue;
+            versions.add(tariffVersion);
+            tariffVersion.setTariff(TariffTable.get(resultSet.getString("tariff_id")));
         }
         return versions;
+    }
+    public static void close(){
+        cache.clear();
     }
 }

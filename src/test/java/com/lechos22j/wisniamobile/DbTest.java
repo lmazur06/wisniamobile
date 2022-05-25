@@ -13,7 +13,8 @@ import org.junit.jupiter.api.Test;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
+import java.sql.Date;
+import java.time.LocalDate;
 
 public class DbTest {
     @Test
@@ -25,7 +26,7 @@ public class DbTest {
             .get();
         PostPaidTariffVersion tariffVersion = new PostPaidTariffVersion
             .Builder()
-            .setEndDate(Tools.offsetByMonths(new Date(), 12))
+            .setEndDate(Tools.offsetByMonths(Date.valueOf(LocalDate.now()), 12))
             .setMonthlyFee(100)
             .setCallMinutes(120)
             .setNumberOfSms(50)
@@ -47,7 +48,7 @@ public class DbTest {
         tariffVersion.addService(service);
         tariff.addVersion(tariffVersion);
         TariffTable.add(tariff);
-        TariffTable.getAll();
+        var debug = TariffVersionTable.getAll();
         DbInterface.close();
     }
 }

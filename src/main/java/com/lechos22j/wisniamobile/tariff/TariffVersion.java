@@ -4,7 +4,7 @@ import com.lechos22j.wisniamobile.contract.Contract;
 import com.lechos22j.wisniamobile.extraservices.Service;
 import com.lechos22j.wisniamobile.reckoning.Account;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;

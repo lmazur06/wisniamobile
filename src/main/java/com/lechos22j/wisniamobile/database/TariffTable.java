@@ -53,4 +53,8 @@ public class TariffTable {
         }
         return tariffs;
     }
+    public static void close(){
+        cache.clear();
+        TariffVersionTable.close();
+    }
 }

@@ -9,14 +9,15 @@ import com.lechos22j.wisniamobile.utils.Constants;
 import com.lechos22j.wisniamobile.utils.Tools;
 import org.junit.jupiter.api.Test;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.sql.Date;
 
 public class ModuleTest {
     @Test
     public void test() throws Exception {
         PostPaidTariffVersion tariff = new PostPaidTariffVersion
             .Builder()
-            .setEndDate(Tools.offsetByMonths(new Date(), 12))
+            .setEndDate(Tools.offsetByMonths(Date.valueOf(LocalDate.now()), 12))
             .setMonthlyFee(100)
             .setCallMinutes(100)
             .setNumberOfSms(100)
@@ -46,7 +47,7 @@ public class ModuleTest {
             .Builder()
             .setAccount(account)
             .setTariffVersion(tariff)
-            .setEndDate(Tools.offsetByMonths(new Date(), 6))
+            .setEndDate(Tools.offsetByMonths(Date.valueOf(LocalDate.now()), 6))
             .get();
         account.getContracts().add(contract);
         FactureBuilder factureBuilder = new FactureBuilder()

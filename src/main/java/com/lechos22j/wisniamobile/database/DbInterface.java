@@ -22,6 +22,7 @@ public class DbInterface {
     }
     public static void close() throws SQLException {
         if (instance != null) {
+            TariffTable.close();
             instance.connection.close();
         }
         instance = null;

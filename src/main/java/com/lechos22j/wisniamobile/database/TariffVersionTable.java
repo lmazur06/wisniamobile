@@ -28,8 +28,8 @@ public class TariffVersionTable {
     public static void add(TariffVersion version) throws SQLException {
         DbInterface.getInstance().query("INSERT OR REPLACE INTO tariff_versions VALUES ('"
             + version.getId() + "','"
-            + version.getTariff().getId() + "','"
-            + version.getEndDate() + "');");
+            + version.getTariff().getId() + "',"
+            + version.getEndDate().getTime() + ");");
         if(version instanceof PrePaidTariffVersion v)
             PrePaidTariffVersionTable.add(v);
         else if(version instanceof PostPaidTariffVersion v)
@@ -57,5 +57,10 @@ public class TariffVersionTable {
         if (result == null)
             result = PrePaidTariffVersionTable.get(last_version);
         return result;
+    }
+
+    public static void close(){
+        PrePaidTariffVersionTable.close();
+        PostPaidTariffVersionTable.close();
     }
 }

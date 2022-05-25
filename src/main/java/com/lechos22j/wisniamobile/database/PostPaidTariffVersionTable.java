@@ -49,7 +49,7 @@ public class PostPaidTariffVersionTable {
         if(resultSet.next()) {
             PostPaidTariffVersion version = new PostPaidTariffVersion.Builder()
                 .setId(UUID.fromString(id))
-                //.setEndDate(resultSet.getDate("end_date"))
+                .setEndDate(resultSet.getDate("end_date"))
                 .setMonthlyFee(resultSet.getDouble("monthly_fee"))
                 .setCallMinutes(resultSet.getDouble("call_minutes"))
                 .setNumberOfSms(resultSet.getInt("number_of_sms"))
@@ -78,11 +78,17 @@ public class PostPaidTariffVersionTable {
         return tariffVersions;
     }
     public static Set<PostPaidTariffVersion> getAll() throws SQLException {
-        ResultSet resultSet = DbInterface.getInstance().query("SELECT * FROM postpaid_tariff_versions;");
+        ResultSet resultSet = DbInterface.getInstance().query("SELECT * FROM postpaid_tariff_versions INNER JOIN tariff_versions ON tariff_versions.id=postpaid_tariff_versions.id;");
         Set<PostPaidTariffVersion> versions = new HashSet<>();
         while(resultSet.next()) {
-            versions.add(get(resultSet.getString("id")));
+            PostPaidTariffVersion tariffVersion = get(resultSet.getString("id"));
+            if (tariffVersion == null) continue;
+            versions.add(tariffVersion);
+            tariffVersion.setTariff(TariffTable.get(resultSet.getString("tariff_id")));
         }
         return versions;
+    }
+    public static void close(){
+        cache.clear();
     }
 }

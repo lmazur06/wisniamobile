@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="main" uuid="5b3de014-8b1f-4b34-90c0-ad98d901bb5b">
+    <data-source source="LOCAL" name="main" uuid="f4579e51-404d-4d91-bcff-0c3e3d7441db">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:D:\Kody\WisniaMobile\src\main\resources\main.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\uczen\IdeaProjects\wisniamobile\src\main\resources\main.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.36.0.3/sqlite-jdbc-3.36.0.3.jar</url>
+        </library>
+      </libraries>
     </data-source>
   </component>
 </project>

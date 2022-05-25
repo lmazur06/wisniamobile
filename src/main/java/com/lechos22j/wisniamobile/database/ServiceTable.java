@@ -69,4 +69,7 @@ public class ServiceTable {
         }
         return services;
     }
+    public static void close(){
+        cache.clear();
+    }
 }
