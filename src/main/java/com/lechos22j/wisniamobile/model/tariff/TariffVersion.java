@@ -1,8 +1,6 @@
-package com.lechos22j.wisniamobile.tariff;
+package com.lechos22j.wisniamobile.model.tariff;
 
-import com.lechos22j.wisniamobile.contract.Contract;
-import com.lechos22j.wisniamobile.extraservices.Service;
-import com.lechos22j.wisniamobile.reckoning.Account;
+import com.lechos22j.wisniamobile.model.extraservices.Service;
 
 import java.sql.Date;
 import java.util.HashSet;

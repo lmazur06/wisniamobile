@@ -1,7 +1,7 @@
-package com.lechos22j.wisniamobile.database;
+package com.lechos22j.wisniamobile.model.database;
 
-import com.lechos22j.wisniamobile.extraservices.Service;
-import com.lechos22j.wisniamobile.tariff.TariffVersion;
+import com.lechos22j.wisniamobile.model.extraservices.Service;
+import com.lechos22j.wisniamobile.model.tariff.TariffVersion;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

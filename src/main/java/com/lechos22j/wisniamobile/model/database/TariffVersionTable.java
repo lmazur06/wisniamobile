@@ -1,15 +1,13 @@
-package com.lechos22j.wisniamobile.database;
+package com.lechos22j.wisniamobile.model.database;
 
-import com.lechos22j.wisniamobile.extraservices.Service;
-import com.lechos22j.wisniamobile.tariff.PostPaidTariffVersion;
-import com.lechos22j.wisniamobile.tariff.PrePaidTariffVersion;
-import com.lechos22j.wisniamobile.tariff.Tariff;
-import com.lechos22j.wisniamobile.tariff.TariffVersion;
+import com.lechos22j.wisniamobile.model.extraservices.Service;
+import com.lechos22j.wisniamobile.model.tariff.PostPaidTariffVersion;
+import com.lechos22j.wisniamobile.model.tariff.PrePaidTariffVersion;
+import com.lechos22j.wisniamobile.model.tariff.Tariff;
+import com.lechos22j.wisniamobile.model.tariff.TariffVersion;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 public class TariffVersionTable {

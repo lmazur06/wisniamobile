@@ -1,7 +1,7 @@
-package com.lechos22j.wisniamobile.reckoning;
+package com.lechos22j.wisniamobile.model.reckoning;
 
-import com.lechos22j.wisniamobile.contract.Contract;
-import com.lechos22j.wisniamobile.customer.Customer;
+import com.lechos22j.wisniamobile.model.contract.Contract;
+import com.lechos22j.wisniamobile.model.customer.Customer;
 
 import java.time.LocalDate;
 import java.util.HashSet;

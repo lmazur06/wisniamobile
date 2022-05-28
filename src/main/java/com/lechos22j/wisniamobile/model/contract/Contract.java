@@ -1,7 +1,7 @@
-package com.lechos22j.wisniamobile.contract;
+package com.lechos22j.wisniamobile.model.contract;
 
-import com.lechos22j.wisniamobile.reckoning.Account;
-import com.lechos22j.wisniamobile.tariff.TariffVersion;
+import com.lechos22j.wisniamobile.model.reckoning.Account;
+import com.lechos22j.wisniamobile.model.tariff.TariffVersion;
 
 import java.util.Date;
 import java.util.UUID;

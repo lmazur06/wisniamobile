@@ -1,18 +1,14 @@
 package com.lechos22j.wisniamobile;
 
-import com.lechos22j.wisniamobile.database.DbInterface;
-import com.lechos22j.wisniamobile.database.ServiceTable;
-import com.lechos22j.wisniamobile.database.TariffTable;
-import com.lechos22j.wisniamobile.database.TariffVersionTable;
-import com.lechos22j.wisniamobile.extraservices.Service;
-import com.lechos22j.wisniamobile.tariff.PostPaidTariffVersion;
-import com.lechos22j.wisniamobile.tariff.Tariff;
-import com.lechos22j.wisniamobile.tariff.TariffVersion;
-import com.lechos22j.wisniamobile.utils.Tools;
+import com.lechos22j.wisniamobile.model.database.DbInterface;
+import com.lechos22j.wisniamobile.model.database.TariffTable;
+import com.lechos22j.wisniamobile.model.database.TariffVersionTable;
+import com.lechos22j.wisniamobile.model.extraservices.Service;
+import com.lechos22j.wisniamobile.model.tariff.PostPaidTariffVersion;
+import com.lechos22j.wisniamobile.model.tariff.Tariff;
+import com.lechos22j.wisniamobile.model.utils.Tools;
 import org.junit.jupiter.api.Test;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Date;
 import java.time.LocalDate;
 

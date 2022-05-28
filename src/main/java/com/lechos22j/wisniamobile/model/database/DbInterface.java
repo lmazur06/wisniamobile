@@ -1,4 +1,4 @@
-package com.lechos22j.wisniamobile.database;
+package com.lechos22j.wisniamobile.model.database;
 
 import org.sqlite.JDBC;
 import org.sqlite.SQLiteConnection;

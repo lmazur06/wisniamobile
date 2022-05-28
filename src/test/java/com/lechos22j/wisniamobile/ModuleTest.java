@@ -1,12 +1,12 @@
 package com.lechos22j.wisniamobile;
 
-import com.lechos22j.wisniamobile.contract.PostPaidContract;
-import com.lechos22j.wisniamobile.customer.PersonalCustomer;
-import com.lechos22j.wisniamobile.reckoning.Account;
-import com.lechos22j.wisniamobile.reckoning.FactureBuilder;
-import com.lechos22j.wisniamobile.tariff.PostPaidTariffVersion;
-import com.lechos22j.wisniamobile.utils.Constants;
-import com.lechos22j.wisniamobile.utils.Tools;
+import com.lechos22j.wisniamobile.model.contract.PostPaidContract;
+import com.lechos22j.wisniamobile.model.customer.PersonalCustomer;
+import com.lechos22j.wisniamobile.model.reckoning.Account;
+import com.lechos22j.wisniamobile.view.FactureBuilder;
+import com.lechos22j.wisniamobile.model.tariff.PostPaidTariffVersion;
+import com.lechos22j.wisniamobile.model.utils.Constants;
+import com.lechos22j.wisniamobile.model.utils.Tools;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;

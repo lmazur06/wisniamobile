@@ -1,4 +1,4 @@
-package com.lechos22j.wisniamobile.tariff;
+package com.lechos22j.wisniamobile.model.tariff;
 
 import java.util.HashSet;
 import java.util.Set;

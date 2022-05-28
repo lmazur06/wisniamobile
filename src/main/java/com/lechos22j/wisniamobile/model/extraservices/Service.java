@@ -1,6 +1,6 @@
-package com.lechos22j.wisniamobile.extraservices;
+package com.lechos22j.wisniamobile.model.extraservices;
 
-import com.lechos22j.wisniamobile.tariff.TariffVersion;
+import com.lechos22j.wisniamobile.model.tariff.TariffVersion;
 
 import java.util.UUID;
 

@@ -1,1 +1,4 @@
 *.db
+/.gradle/
+/build/
+/.gradle/

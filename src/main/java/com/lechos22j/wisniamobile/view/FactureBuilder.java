@@ -1,7 +1,8 @@
-package com.lechos22j.wisniamobile.reckoning;
+package com.lechos22j.wisniamobile.view;
 
-import com.lechos22j.wisniamobile.customer.CompanyCustomer;
-import com.lechos22j.wisniamobile.customer.PersonalCustomer;
+import com.lechos22j.wisniamobile.model.customer.CompanyCustomer;
+import com.lechos22j.wisniamobile.model.customer.PersonalCustomer;
+import com.lechos22j.wisniamobile.model.reckoning.Account;
 
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;

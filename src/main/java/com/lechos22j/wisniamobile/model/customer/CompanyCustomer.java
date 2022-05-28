@@ -1,29 +1,25 @@
-package com.lechos22j.wisniamobile.customer;
+package com.lechos22j.wisniamobile.model.customer;
 
 import java.util.UUID;
 
-public class PersonalCustomer extends Customer {
+public class CompanyCustomer extends Customer {
     public static class Builder {
-        private final PersonalCustomer customer;
+        private final CompanyCustomer customer;
 
         public Builder() {
-            customer = new PersonalCustomer();
+            customer = new CompanyCustomer();
         }
 
         public Builder setId(UUID id) {
             customer.id = id;
             return this;
         }
-        public Builder setPesel(String pesel) {
-            customer.pesel = pesel;
-            return this;
-        }
         public Builder setName(String name) {
             customer.name = name;
             return this;
         }
-        public Builder setSurname(String surname) {
-            customer.surname = surname;
+        public Builder setNip(String nip) {
+            customer.nip = nip;
             return this;
         }
         public Builder setAddress(String address) {
@@ -39,26 +35,21 @@ public class PersonalCustomer extends Customer {
             return this;
         }
 
-        public PersonalCustomer get() {
+        public CompanyCustomer get() {
             return customer;
         }
     }
-
-    private String pesel;
     private String name;
-    private String surname;
+    private String nip;
     private String address;
     private String phone;
     private String email;
 
-    public String getPesel() {
-        return pesel;
-    }
     public String getName() {
         return name;
     }
-    public String getSurname() {
-        return surname;
+    public String getNip() {
+        return nip;
     }
     public String getAddress() {
         return address;
