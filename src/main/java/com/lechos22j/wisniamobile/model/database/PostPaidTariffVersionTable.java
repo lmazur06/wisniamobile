@@ -58,7 +58,7 @@ public class PostPaidTariffVersionTable {
                 .setMmsFee(resultSet.getDouble("mms_fee"))
                 .setDataTransferFee(resultSet.getDouble("data_transfer_fee"))
                 .get();
-            version.setServices(ServiceTable.getFor(version));
+            version.setServices(ExtraServiceTable.getFor(version));
             version.getServices().forEach(service -> service.setTariffVersion(version));
             cache.put(id, version);
             return version;

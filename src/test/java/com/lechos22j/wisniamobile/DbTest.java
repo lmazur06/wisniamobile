@@ -3,7 +3,7 @@ package com.lechos22j.wisniamobile;
 import com.lechos22j.wisniamobile.model.database.DbInterface;
 import com.lechos22j.wisniamobile.model.database.TariffTable;
 import com.lechos22j.wisniamobile.model.database.TariffVersionTable;
-import com.lechos22j.wisniamobile.model.extraservices.Service;
+import com.lechos22j.wisniamobile.model.extraservices.ExtraService;
 import com.lechos22j.wisniamobile.model.tariff.PostPaidTariffVersion;
 import com.lechos22j.wisniamobile.model.tariff.Tariff;
 import com.lechos22j.utils.Tools;
@@ -34,14 +34,14 @@ public class DbTest {
             .setDataTransferFee(100)
             .setTariff(tariff)
             .get();
-        Service service = new Service
+        ExtraService extraService = new ExtraService
             .Builder()
             .setName("testowa usluga")
             .setDescription("opis")
             .setPrice(10)
             .setTariffVersion(tariffVersion)
             .get();
-        tariffVersion.addService(service);
+        tariffVersion.addService(extraService);
         tariff.addVersion(tariffVersion);
         TariffTable.add(tariff);
         var debug = TariffVersionTable.getAll();

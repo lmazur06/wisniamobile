@@ -4,37 +4,37 @@ import com.lechos22j.wisniamobile.model.tariff.TariffVersion;
 
 import java.util.UUID;
 
-public class Service {
+public class ExtraService {
     public static class Builder{
-        private final Service service;
+        private final ExtraService extraService;
 
         public Builder(){
-            service = new Service();
+            extraService = new ExtraService();
         }
 
         public Builder setId(UUID id){
-            service.id = id;
+            extraService.id = id;
             return this;
         }
         public Builder setName(String name){
-            service.name = name;
+            extraService.name = name;
             return this;
         }
         public Builder setDescription(String description){
-            service.description = description;
+            extraService.description = description;
             return this;
         }
         public Builder setPrice(double price){
-            service.price = price;
+            extraService.price = price;
             return this;
         }
         public Builder setTariffVersion(TariffVersion tariffVersion){
-            service.tariffVersion = tariffVersion;
+            extraService.tariffVersion = tariffVersion;
             return this;
         }
 
-        public Service get(){
-            return service;
+        public ExtraService get(){
+            return extraService;
         }
     }
     private UUID id;
@@ -43,7 +43,7 @@ public class Service {
     private double price;
     private TariffVersion tariffVersion;
 
-    private Service(){
+    private ExtraService(){
         this.id = UUID.randomUUID();
     }
 

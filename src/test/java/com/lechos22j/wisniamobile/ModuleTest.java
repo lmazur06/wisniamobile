@@ -2,7 +2,7 @@ package com.lechos22j.wisniamobile;
 
 import com.lechos22j.wisniamobile.model.contract.PostPaidContract;
 import com.lechos22j.wisniamobile.model.customer.PersonalCustomer;
-import com.lechos22j.wisniamobile.model.reckoning.Account;
+import com.lechos22j.wisniamobile.model.account.Account;
 import com.lechos22j.wisniamobile.view.FactureBuilder;
 import com.lechos22j.wisniamobile.model.tariff.PostPaidTariffVersion;
 import com.lechos22j.utils.Constants;

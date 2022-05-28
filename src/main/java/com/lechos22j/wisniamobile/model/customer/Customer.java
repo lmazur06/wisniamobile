@@ -1,6 +1,6 @@
 package com.lechos22j.wisniamobile.model.customer;
 
-import com.lechos22j.wisniamobile.model.reckoning.Account;
+import com.lechos22j.wisniamobile.model.account.Account;
 
 import java.util.HashSet;
 import java.util.Set;

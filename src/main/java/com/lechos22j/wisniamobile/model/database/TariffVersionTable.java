@@ -1,6 +1,6 @@
 package com.lechos22j.wisniamobile.model.database;
 
-import com.lechos22j.wisniamobile.model.extraservices.Service;
+import com.lechos22j.wisniamobile.model.extraservices.ExtraService;
 import com.lechos22j.wisniamobile.model.tariff.PostPaidTariffVersion;
 import com.lechos22j.wisniamobile.model.tariff.PrePaidTariffVersion;
 import com.lechos22j.wisniamobile.model.tariff.Tariff;
@@ -20,7 +20,7 @@ public class TariffVersionTable {
         );
         PrePaidTariffVersionTable.create();
         PostPaidTariffVersionTable.create();
-        ServiceTable.create();
+        ExtraServiceTable.create();
     }
 
     public static void add(TariffVersion version) throws SQLException {
@@ -32,8 +32,8 @@ public class TariffVersionTable {
             PrePaidTariffVersionTable.add(v);
         else if(version instanceof PostPaidTariffVersion v)
             PostPaidTariffVersionTable.add(v);
-        for(Service s : version.getServices())
-            ServiceTable.add(s);
+        for(ExtraService s : version.getServices())
+            ExtraServiceTable.add(s);
     }
 
     public static Set<TariffVersion> getFor(Tariff tariff) throws SQLException {

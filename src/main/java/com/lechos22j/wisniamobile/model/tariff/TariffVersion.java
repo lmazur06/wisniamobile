@@ -1,6 +1,6 @@
 package com.lechos22j.wisniamobile.model.tariff;
 
-import com.lechos22j.wisniamobile.model.extraservices.Service;
+import com.lechos22j.wisniamobile.model.extraservices.ExtraService;
 
 import java.sql.Date;
 import java.util.HashSet;
@@ -10,22 +10,22 @@ import java.util.UUID;
 public abstract class TariffVersion {
     protected UUID id;
     protected Date endDate;
-    protected Set<Service> services;
+    protected Set<ExtraService> extraServices;
     protected Tariff tariff;
 
     protected TariffVersion() {
         this.id = UUID.randomUUID();
-        this.services = new HashSet<>();
+        this.extraServices = new HashSet<>();
     }
 
-    public void setServices(Set<Service> services) {
-        this.services = services;
+    public void setServices(Set<ExtraService> extraServices) {
+        this.extraServices = extraServices;
     }
     public void setTariff(Tariff tariff) {
         this.tariff = tariff;
     }
-    public void addService(Service service) {
-        this.services.add(service);
+    public void addService(ExtraService extraService) {
+        this.extraServices.add(extraService);
     }
 
     public UUID getId() {
@@ -34,8 +34,8 @@ public abstract class TariffVersion {
     public Date getEndDate() {
         return endDate;
     }
-    public Set<Service> getServices() {
-        return services;
+    public Set<ExtraService> getServices() {
+        return extraServices;
     }
 
     public Tariff getTariff() {

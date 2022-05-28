@@ -1,6 +1,6 @@
 package com.lechos22j.wisniamobile.model.contract;
 
-import com.lechos22j.wisniamobile.model.reckoning.Account;
+import com.lechos22j.wisniamobile.model.account.Account;
 import com.lechos22j.wisniamobile.model.tariff.TariffVersion;
 
 import java.util.Date;
@@ -25,4 +25,9 @@ public abstract class Contract {
         return endDate;
     }
     public abstract TariffVersion getTariff();
+
+    public abstract void sendSms();
+    public abstract void sendMms();
+    public abstract void usePhoneMinutes(double minutes);
+    public abstract void useData(double volume);
 }

@@ -1,6 +1,6 @@
 package com.lechos22j.wisniamobile.model.tariff;
 
-import com.lechos22j.wisniamobile.model.extraservices.Service;
+import com.lechos22j.wisniamobile.model.extraservices.ExtraService;
 
 import java.sql.Date;
 import java.util.Set;
@@ -22,8 +22,8 @@ public class PrePaidTariffVersion extends TariffVersion {
             tariffVersion.endDate = endDate;
             return this;
         }
-        public Builder setServices(Set<Service> services) {
-            tariffVersion.services = services;
+        public Builder setServices(Set<ExtraService> extraServices) {
+            tariffVersion.extraServices = extraServices;
             return this;
         }
         public Builder setTariff(Tariff tariff) {

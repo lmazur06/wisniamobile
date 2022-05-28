@@ -49,7 +49,7 @@ public class PrePaidTariffVersionTable {
             .setMmsPrice(result.getDouble("mms_price"))
             .setDataTransferPrice(result.getDouble("data_transfer_price"))
             .get();
-        version.setServices(ServiceTable.getFor(version));
+        version.setServices(ExtraServiceTable.getFor(version));
         version.getServices().forEach(service -> service.setTariffVersion(version));
         cache.put(id, version);
         return version;

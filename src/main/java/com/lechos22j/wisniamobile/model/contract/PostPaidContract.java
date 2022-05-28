@@ -1,6 +1,6 @@
 package com.lechos22j.wisniamobile.model.contract;
 
-import com.lechos22j.wisniamobile.model.reckoning.Account;
+import com.lechos22j.wisniamobile.model.account.Account;
 import com.lechos22j.wisniamobile.model.tariff.PostPaidTariffVersion;
 import com.lechos22j.wisniamobile.model.tariff.TariffVersion;
 
@@ -81,6 +81,7 @@ public class PostPaidContract extends Contract{
         return tariff;
     }
 
+    @Override
     public void sendSms() {
         if(smsLeft <= 0)
             due += tariff.getSmsFee();
@@ -91,14 +92,16 @@ public class PostPaidContract extends Contract{
             due += tariff.getMmsFee();
         mmsLeft--;
     }
-    public void useMinutes(double minutes) {
+    @Override
+    public void usePhoneMinutes(double minutes) {
         minutesLeft -= minutes;
         if(minutesLeft < 0)
             due -= minutesLeft * tariff.getCallFee();
         minutesLeft = 0.0;
     }
-    public void useData(double data) {
-        dataLeft -= data;
+    @Override
+    public void useData(double volume) {
+        dataLeft -= volume;
         if(dataLeft < 0)
             due -= dataLeft * tariff.getDataTransferFee();
         dataLeft = 0.0;

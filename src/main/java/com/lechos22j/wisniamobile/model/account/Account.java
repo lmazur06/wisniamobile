@@ -1,4 +1,4 @@
-package com.lechos22j.wisniamobile.model.reckoning;
+package com.lechos22j.wisniamobile.model.account;
 
 import com.lechos22j.wisniamobile.model.contract.Contract;
 import com.lechos22j.wisniamobile.model.customer.Customer;

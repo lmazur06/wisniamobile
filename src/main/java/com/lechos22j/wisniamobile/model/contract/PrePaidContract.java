@@ -1,9 +1,10 @@
 package com.lechos22j.wisniamobile.model.contract;
 
-import com.lechos22j.wisniamobile.model.reckoning.Account;
+import com.lechos22j.wisniamobile.model.account.Account;
 import com.lechos22j.wisniamobile.model.tariff.PrePaidTariffVersion;
 import com.lechos22j.wisniamobile.model.tariff.TariffVersion;
 
+import java.sql.Date;
 import java.util.UUID;
 
 public class PrePaidContract extends Contract {
@@ -14,19 +15,27 @@ public class PrePaidContract extends Contract {
         }
 
         public Builder setId(UUID id) {
-            this.contract.id = id;
+            contract.id = id;
             return this;
         }
         public Builder setPhoneNumber(String phoneNumber) {
-            this.contract.phoneNumber = phoneNumber;
+            contract.phoneNumber = phoneNumber;
             return this;
         }
         public Builder setAccount(Account account) {
-            this.contract.account = account;
+            contract.account = account;
+            return this;
+        }
+        public Builder setEndDate(Date endDate) {
+            contract.endDate = endDate;
             return this;
         }
         public Builder setTariffVersion(PrePaidTariffVersion tariffVersion) {
-            this.contract.tariff = tariffVersion;
+            contract.tariff = tariffVersion;
+            return this;
+        }
+        public Builder setBalance(double balance) {
+            contract.balance = balance;
             return this;
         }
 
@@ -36,6 +45,7 @@ public class PrePaidContract extends Contract {
     }
 
     private PrePaidTariffVersion tariff;
+    private double balance;
 
     protected PrePaidContract() {
         super();
@@ -44,5 +54,41 @@ public class PrePaidContract extends Contract {
     @Override
     public TariffVersion getTariff() {
         return tariff;
+    }
+
+    @Override
+    public void sendSms() {
+        if(balance - tariff.getSmsPrice() < 0) {
+            throw new IllegalStateException("Not enough money");
+        }
+        balance -= tariff.getSmsPrice();
+    }
+
+    @Override
+    public void sendMms() {
+        if(balance - tariff.getMmsPrice() < 0) {
+            throw new IllegalStateException("Not enough money");
+        }
+        balance -= tariff.getMmsPrice();
+    }
+
+    @Override
+    public void usePhoneMinutes(double minutes) {
+        if(balance - tariff.getCallPrice() * minutes < 0) {
+            throw new IllegalStateException("Not enough money");
+        }
+        balance -= tariff.getCallPrice() * minutes;
+    }
+
+    @Override
+    public void useData(double volume) {
+        if(balance - tariff.getDataTransferPrice() * volume < 0) {
+            throw new IllegalStateException("Not enough money");
+        }
+        balance -= tariff.getDataTransferPrice() * volume;
+    }
+
+    public double getBalance() {
+        return balance;
     }
 }
