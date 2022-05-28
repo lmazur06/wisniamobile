@@ -5,8 +5,8 @@ import com.lechos22j.wisniamobile.model.customer.PersonalCustomer;
 import com.lechos22j.wisniamobile.model.reckoning.Account;
 import com.lechos22j.wisniamobile.view.FactureBuilder;
 import com.lechos22j.wisniamobile.model.tariff.PostPaidTariffVersion;
-import com.lechos22j.wisniamobile.model.utils.Constants;
-import com.lechos22j.wisniamobile.model.utils.Tools;
+import com.lechos22j.utils.Constants;
+import com.lechos22j.utils.Tools;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;

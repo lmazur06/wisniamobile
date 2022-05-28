@@ -1,4 +1,4 @@
-package com.lechos22j.wisniamobile.model.utils;
+package com.lechos22j.utils;
 
 import java.time.LocalDate;
 import java.time.Month;

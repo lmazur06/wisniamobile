@@ -6,7 +6,7 @@ import com.lechos22j.wisniamobile.model.database.TariffVersionTable;
 import com.lechos22j.wisniamobile.model.extraservices.Service;
 import com.lechos22j.wisniamobile.model.tariff.PostPaidTariffVersion;
 import com.lechos22j.wisniamobile.model.tariff.Tariff;
-import com.lechos22j.wisniamobile.model.utils.Tools;
+import com.lechos22j.utils.Tools;
 import org.junit.jupiter.api.Test;
 
 import java.sql.Date;
