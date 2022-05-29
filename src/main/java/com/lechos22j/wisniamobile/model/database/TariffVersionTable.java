@@ -55,7 +55,5 @@ public class TariffVersionTable {
     }
 
     public static void close(){
-        PrePaidTariffVersionTable.close();
-        PostPaidTariffVersionTable.close();
     }
 }

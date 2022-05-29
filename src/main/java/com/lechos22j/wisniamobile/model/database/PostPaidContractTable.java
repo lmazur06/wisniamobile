@@ -75,4 +75,8 @@ public class PostPaidContractTable {
         }
         return postPaidContracts;
     }
+
+    public static void close() {
+        cache.clear();
+    }
 }

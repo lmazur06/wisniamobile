@@ -21,8 +21,8 @@ public class DbInterface {
         return instance;
     }
     public static void close() throws SQLException {
+        closeAllTables();
         if (instance != null) {
-            TariffTable.close();
             instance.connection.close();
         }
         instance = null;
@@ -43,5 +43,16 @@ public class DbInterface {
         ContractTable.create();
         PrePaidContractTable.create();
         PostPaidContractTable.create();
+    }
+    public static void closeAllTables() throws SQLException {
+        CustomerTable.close();
+        TariffTable.close();
+        TariffVersionTable.close();
+        PrePaidTariffVersionTable.close();
+        PostPaidTariffVersionTable.close();
+        AccountTable.close();
+        ContractTable.close();
+        PrePaidContractTable.close();
+        PostPaidContractTable.close();
     }
 }

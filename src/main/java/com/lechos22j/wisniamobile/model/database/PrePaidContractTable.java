@@ -64,4 +64,8 @@ public class PrePaidContractTable {
         }
         return prePaidContracts;
     }
+
+    public static void close() {
+        cache.clear();
+    }
 }

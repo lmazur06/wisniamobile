@@ -39,4 +39,6 @@ public class CustomerTable {
             customer = CompanyCustomerTable.get(id);
         return customer;
     }
+
+    public static void close() {}
 }

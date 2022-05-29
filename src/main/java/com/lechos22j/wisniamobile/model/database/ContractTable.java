@@ -41,4 +41,7 @@ public class ContractTable {
         contracts.addAll(PostPaidContractTable.getFor(account));
         return contracts;
     }
+
+    public static void close() {
+    }
 }
