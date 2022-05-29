@@ -81,6 +81,7 @@ public class PostPaidContract extends Contract{
 
     protected PostPaidContract() {
         super();
+        id = UUID.randomUUID();
     }
 
     @Override

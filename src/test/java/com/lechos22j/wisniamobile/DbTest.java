@@ -1,8 +1,9 @@
 package com.lechos22j.wisniamobile;
 
-import com.lechos22j.wisniamobile.model.database.DbInterface;
-import com.lechos22j.wisniamobile.model.database.TariffTable;
-import com.lechos22j.wisniamobile.model.database.TariffVersionTable;
+import com.lechos22j.wisniamobile.model.account.Account;
+import com.lechos22j.wisniamobile.model.contract.PostPaidContract;
+import com.lechos22j.wisniamobile.model.customer.PersonalCustomer;
+import com.lechos22j.wisniamobile.model.database.*;
 import com.lechos22j.wisniamobile.model.extraservices.ExtraService;
 import com.lechos22j.wisniamobile.model.tariff.PostPaidTariffVersion;
 import com.lechos22j.wisniamobile.model.tariff.Tariff;
@@ -44,7 +45,33 @@ public class DbTest {
         tariffVersion.addService(extraService);
         tariff.addVersion(tariffVersion);
         TariffTable.add(tariff);
-        var debug = TariffVersionTable.getAll();
+        PersonalCustomer customer = new PersonalCustomer.Builder()
+            .setName("(RODO)")
+            .setSurname("(RODO)")
+            .setPesel("(RODO)")
+            .setAddress("ul. (RODO)")
+            .setPhone("(RODO)")
+            .setEmail("(RODO)@(RODO).pl")
+            .get();
+        Account account = new Account
+            .Builder()
+            .setCustomer(customer)
+            .genBillingDay()
+            .get();
+        customer.addAccount(account);
+        PostPaidContract postPaidContract = new PostPaidContract.Builder()
+            .setPhoneNumber("(RODO 2)")
+            .setAccount(account)
+            .setEndDate(tariffVersion.getEndDate())
+            .setTariffVersion(tariffVersion)
+            .applyTariffVersion()
+            .get();
+        account.addContract(postPaidContract);
+
+        CustomerTable.add(customer);
+
+        var debug = AccountTable.getAll();
+
         DbInterface.close();
     }
 }

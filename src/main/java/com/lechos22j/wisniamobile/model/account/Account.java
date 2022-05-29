@@ -72,6 +72,10 @@ public class Account {
         this.contracts = new HashSet<>();
     }
 
+    public void addContract(Contract contract) {
+        contracts.add(contract);
+    }
+
     public UUID getId() {
         return id;
     }

@@ -35,6 +35,8 @@ public class DbInterface {
     }
     public static void createAllTables() throws SQLException {
         CustomerTable.create();
+        PersonalCustomerTable.create();
+        CompanyCustomerTable.create();
         TariffTable.create();
         TariffVersionTable.create();
         PrePaidTariffVersionTable.create();
@@ -43,6 +45,7 @@ public class DbInterface {
         ContractTable.create();
         PrePaidContractTable.create();
         PostPaidContractTable.create();
+        ExtraServiceTable.create();
     }
     public static void closeAllTables() throws SQLException {
         CustomerTable.close();
@@ -54,5 +57,6 @@ public class DbInterface {
         ContractTable.close();
         PrePaidContractTable.close();
         PostPaidContractTable.close();
+        ExtraServiceTable.close();
     }
 }
