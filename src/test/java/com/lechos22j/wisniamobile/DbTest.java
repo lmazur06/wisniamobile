@@ -15,7 +15,7 @@ import java.time.LocalDate;
 public class DbTest {
     @Test
     public void test() throws Exception {
-        TariffTable.create();
+        DbInterface.createAllTables();
         Tariff tariff = new Tariff
             .Builder()
             .setName("testowa taryfa")

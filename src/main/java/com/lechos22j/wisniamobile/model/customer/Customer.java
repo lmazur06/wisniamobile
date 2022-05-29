@@ -12,8 +12,15 @@ public abstract class Customer {
     public Set<Account> getAccounts() {
         return accounts;
     }
+    public void addAccount(Account account) {
+        accounts.add(account);
+    }
     protected Customer() {
         this.id = UUID.randomUUID();
         accounts = new HashSet<>();
+    }
+
+    public UUID getId() {
+        return id;
     }
 }

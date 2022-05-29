@@ -57,6 +57,10 @@ public class PostPaidContract extends Contract{
             this.contract.dataLeft = dataLeft;
             return this;
         }
+        public Builder setDue(double due) {
+            this.contract.due = due;
+            return this;
+        }
 
         public PostPaidContract get() {
             if(this.contract.endDate == null || this.contract.endDate.after(this.contract.tariff.getEndDate()))
@@ -107,6 +111,21 @@ public class PostPaidContract extends Contract{
         dataLeft = 0.0;
     }
 
+    public Integer getSmsLeft() {
+        return smsLeft;
+    }
+    public Integer getMmsLeft() {
+        return mmsLeft;
+    }
+    public Double getMinutesLeft() {
+        return minutesLeft;
+    }
+    public Double getDataLeft() {
+        return dataLeft;
+    }
+    public double getDue() {
+        return due;
+    }
     public double getTotal() {
         return due + tariff.getMonthlyFee();
     }

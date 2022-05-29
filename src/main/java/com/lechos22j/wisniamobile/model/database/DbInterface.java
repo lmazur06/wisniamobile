@@ -33,4 +33,15 @@ public class DbInterface {
         statement.execute(query);
         return statement.getResultSet();
     }
+    public static void createAllTables() throws SQLException {
+        CustomerTable.create();
+        TariffTable.create();
+        TariffVersionTable.create();
+        PrePaidTariffVersionTable.create();
+        PostPaidTariffVersionTable.create();
+        AccountTable.create();
+        ContractTable.create();
+        PrePaidContractTable.create();
+        PostPaidContractTable.create();
+    }
 }

@@ -18,9 +18,6 @@ public class TariffVersionTable {
             "end_date DATE" +
             ");"
         );
-        PrePaidTariffVersionTable.create();
-        PostPaidTariffVersionTable.create();
-        ExtraServiceTable.create();
     }
 
     public static void add(TariffVersion version) throws SQLException {

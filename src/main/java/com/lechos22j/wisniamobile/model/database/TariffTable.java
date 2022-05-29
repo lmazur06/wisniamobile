@@ -16,7 +16,6 @@ public class TariffTable {
             "last_version TEXT" +
             ");"
         );
-        TariffVersionTable.create();
     }
     public static void add(Tariff tariff) throws SQLException {
         cache.put(tariff.getId().toString(), tariff);

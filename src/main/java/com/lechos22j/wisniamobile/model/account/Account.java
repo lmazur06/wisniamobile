@@ -63,6 +63,7 @@ public class Account {
     private UUID id;
     private Set<Contract> contracts;
     private Customer customer;
+
     private int billingDay;
 
     protected Account() {
@@ -78,5 +79,8 @@ public class Account {
     }
     public Customer getCustomer() {
         return customer;
+    }
+    public int getBillingDay() {
+        return billingDay;
     }
 }
