@@ -1,8 +1,11 @@
 package com.lechos22j.wisniamobile.model.contract;
 
+import com.lechos22j.utils.Constants;
+import com.lechos22j.utils.Emails;
 import com.lechos22j.wisniamobile.model.account.Account;
 import com.lechos22j.wisniamobile.model.tariff.PostPaidTariffVersion;
 import com.lechos22j.wisniamobile.model.tariff.TariffVersion;
+import com.lechos22j.wisniamobile.view.FactureBuilder;
 
 import java.util.Date;
 import java.util.UUID;
@@ -128,5 +131,14 @@ public class PostPaidContract extends Contract{
     }
     public double getTotal() {
         return due + tariff.getMonthlyFee();
+    }
+
+    @Override
+    public void executeBillingCycle() {
+        due = 0;
+        smsLeft = tariff.getNumberOfSms();
+        mmsLeft = tariff.getNumberOfMms();
+        minutesLeft = tariff.getCallMinutes();
+        dataLeft = tariff.getDataVolume();
     }
 }

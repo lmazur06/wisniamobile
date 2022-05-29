@@ -1,12 +1,14 @@
 package com.lechos22j.wisniamobile.view;
 
+import com.lechos22j.utils.Constants;
 import com.lechos22j.wisniamobile.model.customer.CompanyCustomer;
 import com.lechos22j.wisniamobile.model.customer.PersonalCustomer;
 import com.lechos22j.wisniamobile.model.account.Account;
 
+import java.time.LocalDate;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
+import java.sql.Date;
 import java.util.UUID;
 
 public class FactureBuilder {
@@ -18,7 +20,8 @@ public class FactureBuilder {
 
     public FactureBuilder() {
         this.id = UUID.randomUUID();
-        this.date = new Date();
+        this.date = Date.valueOf(LocalDate.now());
+        this.city = Constants.CITY;
     }
 
     public FactureBuilder setId(UUID id) {

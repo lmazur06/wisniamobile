@@ -20,6 +20,8 @@ public abstract class Customer {
         accounts = new HashSet<>();
     }
 
+    public abstract String getEmail();
+
     public UUID getId() {
         return id;
     }

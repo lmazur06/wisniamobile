@@ -88,6 +88,9 @@ public class PrePaidContract extends Contract {
         balance -= tariff.getDataTransferPrice() * volume;
     }
 
+    @Override
+    public void executeBillingCycle() {} // PrePaid contracts don't have billing cycles
+
     public double getBalance() {
         return balance;
     }

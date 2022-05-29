@@ -9,6 +9,7 @@ import java.util.Set;
 import java.util.UUID;
 
 public class Account {
+
     public static class Builder {
         private final Account account;
 

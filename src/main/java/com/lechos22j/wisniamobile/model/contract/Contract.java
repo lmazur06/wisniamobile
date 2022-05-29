@@ -3,6 +3,7 @@ package com.lechos22j.wisniamobile.model.contract;
 import com.lechos22j.wisniamobile.model.account.Account;
 import com.lechos22j.wisniamobile.model.tariff.TariffVersion;
 
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.UUID;
 
@@ -30,4 +31,6 @@ public abstract class Contract {
     public abstract void sendMms();
     public abstract void usePhoneMinutes(double minutes);
     public abstract void useData(double volume);
+
+    public abstract void executeBillingCycle();
 }
